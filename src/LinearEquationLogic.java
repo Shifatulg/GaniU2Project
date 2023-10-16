@@ -12,5 +12,10 @@ public class LinearEquationLogic {
 
     }
 
-    private
+    private void initialize() {
+        System.out.print("Enter Coordinate 1: ");
+        String coord1 = scan.nextLine();
+        System.out.print("Enter Coordinate 2: ");
+        String coord2 = scan.nextLine();
+    }
 }
