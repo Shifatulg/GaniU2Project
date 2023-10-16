@@ -12,14 +12,14 @@ public class LinearEquation {
     }
 
     public double distance() {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        return roundedToHundredth(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
     }
 
     public double yIntercept() {
-        return slope() * x1 - y1;
+        return roundedToHundredth(slope() * x1 - y1);
     }
     public double slope() {
-        return (y2 - y1) / (x2 - x1);
+        return roundedToHundredth((y2 - y1) / (x2 - x1));
     }
 
     public String equation() {
