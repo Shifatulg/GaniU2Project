@@ -19,6 +19,7 @@ public class LinearEquation {
         return roundedToHundredth(slope() * x1 - y1);
     }
     public double slope() {
+
         return roundedToHundredth((y2 - y1) / (x2 - x1));
     }
 
@@ -40,10 +41,10 @@ public class LinearEquation {
         String info = "";
         info += "The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2
  + ")";
-        info += "The equation of the line between these points is: " + equation();
-        info += "The slope of this line is : " + slope();
-        info += "The y-intercept of this line is: " + yIntercept();
-        info += "The distance between these points is " + distance();
+        info += "\nThe equation of the line between these points is: " + equation();
+        info += "\nThe slope of this line is : " + slope();
+        info += "\nThe y-intercept of this line is: " + yIntercept();
+        info += "\nThe distance between these points is " + distance();
         return info;
     }
     private double roundedToHundredth(double toRound) {
