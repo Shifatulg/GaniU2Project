@@ -6,14 +6,21 @@ public class LinearEquationLogic {
 
     private LinearEquation coords;
     private Scanner scan;
+    private boolean Continue;
+
     public LinearEquationLogic() {
         coords = null;
         scan = new Scanner(System.in);
+        Continue = true;
     }
 
     public void start() {
         System.out.println("Welcome to the linear equation calculator!");
-        initialize();
+        while (Continue) {
+            initialize();
+            methodCall();
+            reiterate();
+        }
     }
 
     private void initialize() {
@@ -25,7 +32,36 @@ public class LinearEquationLogic {
         double parameter_2 = Double.parseDouble(coord1.substring(coord1.indexOf(",") + 1, coord1.length() - 1));
         double parameter_3 = Double.parseDouble(coord2.substring(1,coord2.indexOf(",")));
         double parameter_4 = Double.parseDouble(coord2.substring(coord2.indexOf(",")+ 1, coord1.length() - 1));
-        coords = new LinearEquation(parameter_1, parameter_2, parameter_3, parameter_4);
+        coords = new LinearEquation(parameter_1, parameter_3, parameter_2, parameter_4);
+    }
+
+    private void methodCall() {
         System.out.println(coords.lineInfo());
+        System.out.print("Enter a value for x: ");
+        double choice = scan.nextDouble();
+        System.out.println(coords.coordinateForX(choice));
+    }
+
+    private void reiterate() {
+        String answer = "";
+        scan.nextLine();
+        boolean invalid;
+        while (answer != "n" || answer != "n") {
+            invalid = true;
+            System.out.print("Would you like to enter another pair of coordinates? y/n: ");
+            answer = scan.nextLine();
+            answer = answer.toLowerCase();
+            if (answer == "n") {
+                Continue = false;
+                invalid = false;
+            } else if (answer == "y") {
+                invalid = false;
+            }
+            if (invalid == true) {
+                System.out.println("Invalid option, try again!");
+                continue;
+            }
+            break;
+        }
     }
 }

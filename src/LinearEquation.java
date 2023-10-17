@@ -16,7 +16,8 @@ public class LinearEquation {
     }
 
     public double yIntercept() {
-        return roundedToHundredth(slope() * x1 - y1);
+
+        return roundedToHundredth(-1 * (slope() * x1 - y1));
     }
     public double slope() {
 
@@ -35,7 +36,7 @@ public class LinearEquation {
 
     public String coordinateForX(double x) {
         double y = slope() * x + yIntercept();
-        return "(" + x + ", " + y + ")";
+        return "The points on the line is (" + x + ", " + y + ")";
     }
     public String lineInfo() {
         String info = "";
