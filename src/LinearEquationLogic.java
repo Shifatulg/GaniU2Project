@@ -43,21 +43,17 @@ public class LinearEquationLogic {
     }
 
     private void reiterate() {
-        String answer = "";
+        String answer;
         scan.nextLine();
-        boolean invalid;
-        while (answer != "n" || answer != "n") {
-            invalid = true;
+        while (true) {
             System.out.print("Would you like to enter another pair of coordinates? y/n: ");
             answer = scan.nextLine();
             answer = answer.toLowerCase();
-            if (answer == "n") {
+            if (answer.equals("n")) {
                 Continue = false;
-                invalid = false;
-            } else if (answer == "y") {
-                invalid = false;
-            }
-            if (invalid == true) {
+            } else if (answer.equals("y")) {
+                Continue = true;
+            } else {
                 System.out.println("Invalid option, try again!");
                 continue;
             }
