@@ -25,6 +25,12 @@ public class LinearEquation {
 
     public String equation() {
         String fEquation = "y = ";
+        if ((y2 - y1) == (int) (y2 - y1)) {
+            int changeY = (int) (y2 - y1);
+        }
+        if ((x2 - x1) == (int) (x2 - x1)) {
+            int changex = (int) (x2 - x1);
+        }
         if (x2 == x1) {
             return "The equation of this line between these points is: x = " + x1;
         }
@@ -35,10 +41,10 @@ public class LinearEquation {
             fEquation += "-";
         }
         if ((int)(y2 - y1) / (x2 - x1) == (y2 - y1) / (x2 - x1)) {
-            if ((y2 - y1) / (x2 - x1) == 1) {
+            if ((y2 - y1) / (x2 - x1) == 1 || (y2 - y1) / (x2 - x1) == -1) {
                 fEquation += "";
             } else {
-                fEquation += (int) ((y2 - y1) / (x2 - x1));
+                fEquation += Math.abs() + "/" + Math.abs(x2 - x1);
             }
         }
         fEquation += "x ";
@@ -49,7 +55,7 @@ public class LinearEquation {
         } else {
             fEquation += "+ " + Math.abs(yIntercept());
         }
-        return "The equation of this line between these points is: y = " + fEquation;
+        return "The equation of this line between these points is: " + fEquation;
     }
 
     public String coordinateForX(double x) {
