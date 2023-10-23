@@ -16,6 +16,7 @@ public class LinearEquation {
     }
 
     public double yIntercept() {
+
         return roundedToHundredth(-1 * (slope() * x1 - y1));
     }
     public double slope() {
@@ -23,13 +24,32 @@ public class LinearEquation {
     }
 
     public String equation() {
+        String fEquation = "y = ";
         if (x2 == x1) {
             return "The equation of this line between these points is: x = " + x1;
         }
         else if (y2 == y1) {
             return "The equation of this line bewteen these points is: y = " + y1;
         }
-        return "The equation of this line between these points is: y = " + (y2 - y1) + "/" + (x2 - x1) + "x + " + yIntercept();
+        if ((y2 - y1) / (x2 - x1) < 0) {
+            fEquation += "-";
+        }
+        if ((int)(y2 - y1) / (x2 - x1) == (y2 - y1) / (x2 - x1)) {
+            if ((y2 - y1) / (x2 - x1) == 1) {
+                fEquation += "";
+            } else {
+                fEquation += (int) ((y2 - y1) / (x2 - x1));
+            }
+        }
+        fEquation += "x ";
+        if (yIntercept() == 0) {
+            fEquation += "";
+        } else if (yIntercept() < 0) {
+            fEquation += "- " + Math.abs(yIntercept());
+        } else {
+            fEquation += "+ " + Math.abs(yIntercept());
+        }
+        return "The equation of this line between these points is: y = " + fEquation;
     }
 
     public String coordinateForX(double x) {
