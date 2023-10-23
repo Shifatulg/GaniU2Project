@@ -34,7 +34,7 @@ public class LinearEquation {
 
     public String coordinateForX(double x) {
         double y = slope() * x + yIntercept();
-        return "The points on the line is (" + x + ", " + y + ")";
+        return "The points on the line is (" + x + ", " + roundedToHundredth(y) + ")";
     }
     public String lineInfo() {
         if (x2 == x1) {
