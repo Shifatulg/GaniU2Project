@@ -32,23 +32,24 @@ public class LinearEquationLogic {
         int parameter_2 = Integer.parseInt(coord1.substring(coord1.indexOf(",") + 1, coord1.length() - 1));
         int parameter_3 = Integer.parseInt(coord2.substring(1,coord2.indexOf(",")));
         int parameter_4 = Integer.parseInt(coord2.substring(coord2.indexOf(",")+ 1, coord2.length() - 1));
-        coords = new LinearEquation(parameter_1, parameter_3, parameter_2, parameter_4);
+        coords = new LinearEquation(parameter_1, parameter_2, parameter_3, parameter_4);
     }
 
     private void methodCall() {
         System.out.println(coords.lineInfo());
         if (coords.iterate()) {
-          System.out.print("Enter a value for x: ");
-          double choice = scan.nextDouble();
-          System.out.print(coords.coordinateForX(choice));
+            System.out.print("\nEnter a value for x: ");
+            double choice = scan.nextDouble();
+            scan.nextLine();
+            System.out.print(coords.coordinateForX(choice));
         }
     }
 
     private void reiterate() {
         String answer;
         while (true) {
-            scan.nextLine();
-            System.out.println("Would you like to enter another pair of coordinates? y/n: ");
+            //scan.nextLine();
+            System.out.print("Would you like to enter another pair of coordinates? y/n: ");
             answer = scan.nextLine();
             answer = answer.toLowerCase();
             if (answer.equals("n")) {
